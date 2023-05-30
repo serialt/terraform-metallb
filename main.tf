@@ -3,16 +3,16 @@
 #
 
 resource "helm_release" "metallb" {
-  name             = "metallb"
-  repository       = "https://metallb.github.io/metallb"
+  name             = var.metallb_release_name
+  repository       = var.repository
   chart            = "metallb"
-  version          = "0.13.9"
+  version          = var.version
   create_namespace = true
   namespace        = var.metallb_namespace
 }
 
 resource "helm_release" "metallb_config" {
-  name      = "metallb-config"
+  name      = var.metallb_config_release_name
   chart     = "${path.module}/files/metallb-config"
   namespace = var.metallb_namespace
 
