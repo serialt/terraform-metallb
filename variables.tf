@@ -28,6 +28,6 @@ variable "ip_pool_range" {
 
 variable "metallb_namespace" {
   type        = string
-  default     = "metallb"
+  default     = "metallb-system"
   description = "The namespace for MetalLB deployment."
 }
