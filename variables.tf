@@ -9,13 +9,13 @@ variable "metallb_config_release_name"{
   default = "metallb-config"
 }
 
-variable "repository" {
+variable "chart_repository" {
   
   type =  string
   default = "https://metallb.github.io/metallb"
 }
 
-variable "version" {
+variable "chart_version" {
   type = string
   default = "0.13.9"
   
