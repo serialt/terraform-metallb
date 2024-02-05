@@ -1,12 +1,7 @@
-variable "metallb_release_name" {
+variable "name" {
   type = string
   default = "metallb"
 
-}
-  
-variable "metallb_config_release_name"{
-  type = string
-  default = "metallb-config"
 }
 
 variable "chart_repository" {
@@ -26,7 +21,7 @@ variable "ip_pool_range" {
   description = "The IP address pool range given to MetalLB."
 }
 
-variable "metallb_namespace" {
+variable "namespace" {
   type        = string
   default     = "metallb-system"
   description = "The namespace for MetalLB deployment."

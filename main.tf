@@ -3,17 +3,17 @@
 #
 
 resource "helm_release" "metallb" {
-  name             = var.metallb_release_name
+  name             = var.name
   repository       = var.chart_repository
   chart            = "metallb"
   version          = var.chart_version
-  namespace        = var.metallb_namespace
+  namespace        = var.namespace
 }
 
 resource "helm_release" "metallb_config" {
-  name      = var.metallb_config_release_name
+  name      = "${var.name}-config"
   chart     = "${path.module}/files/metallb-config"
-  namespace = var.metallb_namespace
+  namespace = var.namespace
 
   set {
     name  = "ip_pool_range"
