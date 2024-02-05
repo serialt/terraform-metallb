@@ -4,7 +4,7 @@
 
 resource "helm_release" "metallb" {
   name             = var.name
-  repository       = var.chart_repository
+  repository       = var.helm_repository
   chart            = "metallb"
   version          = var.chart_version
   namespace        = var.namespace

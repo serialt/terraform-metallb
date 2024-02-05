@@ -4,7 +4,7 @@ variable "name" {
 
 }
 
-variable "chart_repository" {
+variable "helm_repository" {
   
   type =  string
   default = "https://metallb.github.io/metallb"
