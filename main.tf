@@ -7,7 +7,6 @@ resource "helm_release" "metallb" {
   repository       = var.chart_repository
   chart            = "metallb"
   version          = var.chart_version
-  create_namespace = true
   namespace        = var.metallb_namespace
 }
 
