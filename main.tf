@@ -11,19 +11,19 @@ resource "helm_release" "metallb" {
 
   set {
     name  = "controller.image.repository"
-    value = "${var.image_registry}/${var.image.controller.repository}"
+    value = "${var.mirror}/${var.image.controller.repository}"
   }
   set {
     name  = "controller.image.tag"
-    value = "${var.image_registry}/${var.image.controller.tag}"
+    value = "${var.mirror}/${var.image.controller.tag}"
   }
   set {
     name  = "speaker.image.repository"
-    value = "${var.image_registry}/${var.image.speaker.repository}"
+    value = "${var.mirror}/${var.image.speaker.repository}"
   }
   set {
     name  = "speaker.image.tag"
-    value = "${var.image_registry}/${var.image.speaker.tag}"
+    value = "${var.mirror}/${var.image.speaker.tag}"
   }
 }
 

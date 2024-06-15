@@ -16,20 +16,20 @@ variable "chart_version" {
 
 }
 
-variable "image_registry" {
+variable "mirror" {
   type    = string
-  default = "docker.io"
+  default = "docker.io/metallb"
 }
 
 variable "image" {
   type = any
   default = {
     controller = {
-      repository = "metallb/controller"
+      repository = "controller"
       tag        = ""
     }
     speaker = {
-      repository = "metallb/speaker"
+      repository = "speaker"
       tag        = ""
     }
   }
