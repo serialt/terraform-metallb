@@ -1,19 +1,39 @@
 variable "name" {
-  type = string
+  type    = string
   default = "metallb"
 
 }
 
 variable "helm_repository" {
-  
-  type =  string
+
+  type    = string
   default = "https://metallb.github.io/metallb"
 }
 
 variable "chart_version" {
-  type = string
+  type    = string
   default = "0.13.9"
-  
+
+}
+
+variable "image_registry" {
+  type    = string
+  default = "docker.io"
+}
+
+variable "image" {
+  type = any
+  default = {
+    controller = {
+      repository = "metallb/controller"
+      tag        = ""
+    }
+    speaker = {
+      repository = "metallb/speaker"
+      tag        = ""
+    }
+  }
+
 }
 
 variable "ip_pool_range" {

@@ -3,11 +3,28 @@
 #
 
 resource "helm_release" "metallb" {
-  name             = var.name
-  repository       = var.helm_repository
-  chart            = "metallb"
-  version          = var.chart_version
-  namespace        = var.namespace
+  name       = var.name
+  repository = var.helm_repository
+  chart      = "metallb"
+  version    = var.chart_version
+  namespace  = var.namespace
+
+  set {
+    name  = "controller.image.repository"
+    value = "${var.image_registry}/${var.image.controller.repository}"
+  }
+  set {
+    name  = "controller.image.tag"
+    value = "${var.image_registry}/${var.image.controller.tag}"
+  }
+  set {
+    name  = "speaker.image.repository"
+    value = "${var.image_registry}/${var.image.speaker.repository}"
+  }
+  set {
+    name  = "speaker.image.tag"
+    value = "${var.image_registry}/${var.image.speaker.tag}"
+  }
 }
 
 resource "helm_release" "metallb_config" {
