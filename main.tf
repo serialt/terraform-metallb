@@ -25,6 +25,11 @@ resource "helm_release" "metallb" {
     name  = "speaker.image.tag"
     value = "${var.mirror}/${var.image.speaker.tag}"
   }
+
+  set {
+    name  = "imagePullSecrets"
+    value = "${var.imagePullSecrets}"
+  }
 }
 
 resource "helm_release" "metallb_config" {

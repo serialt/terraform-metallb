@@ -21,6 +21,11 @@ variable "mirror" {
   default = "docker.io/metallb"
 }
 
+variable "imagePullSecrets"{
+  type = any 
+  default = []
+}
+
 variable "image" {
   type = any
   default = {
